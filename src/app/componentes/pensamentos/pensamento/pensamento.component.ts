@@ -7,7 +7,8 @@ import { Component, Input} from '@angular/core';
 })
 export class PensamentoComponent {
 
-  @Input() pensamento = {
+  @Input() pensamento: Pensamento = {
+    id: 0,
     conteudo: 'I love Angular',
     autoria: 'Wandberg',
     modelo: 'modelo3'
