@@ -1,17 +1,24 @@
-import { Component, Input} from '@angular/core';
+import { Component, Input, OnInit} from '@angular/core';
+import { Pensamento } from 'src/app/models/pensamento.model';
 
 @Component({
   selector: 'app-pensamento',
   templateUrl: './pensamento.component.html',
   styleUrls: ['./pensamento.component.css']
 })
-export class PensamentoComponent {
+export class PensamentoComponent implements OnInit{
+ 
+  constructor() { }
+
+  ngOnInit(): void {
+    
+  }
 
   @Input() pensamento: Pensamento = {
     id: 0,
-    conteudo: 'I love Angular',
-    autoria: 'Wandberg',
-    modelo: 'modelo3'
+    conteudo: '',
+    autoria: '',
+    modelo: ''
   }
 
   larguraPensamento(): string {
