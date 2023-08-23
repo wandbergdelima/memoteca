@@ -18,12 +18,16 @@ export class PensamentoService {
     return this.http.get<Pensamento>( url )
   }
 
-  findAll(pagina: number): Observable<Pensamento[]> {
+  findAll(pagina: number, filtro: string): Observable<Pensamento[]> {
     const itensPorPagina = 6;
 
     let params = new HttpParams()
       .set("_page", pagina)
       .set("_limit", itensPorPagina)
+      // Lógica do Filtro, para filtrar todos os campos sem os espaços
+      if (filtro.trim().length >1) {
+        params = params.set("q", filtro)
+      }
     //GET /posts?_page7&_limit=20
     // return this.http.get<Pensamento[]>(`${ this.API }?_page=${pagina}&_limit=${itensPorPagina}`);
     return this.http.get<Pensamento[]>(this.API, { params })
