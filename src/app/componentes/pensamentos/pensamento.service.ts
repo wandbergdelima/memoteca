@@ -47,5 +47,9 @@ export class PensamentoService {
     return this.http.delete<Pensamento>( url )
   }
 
+  mudarFavorito(pensamento: Pensamento): Observable<Pensamento> {
+    pensamento.favorito = !pensamento.favorito
+    return this.edit(pensamento)
+  }
 
 }
